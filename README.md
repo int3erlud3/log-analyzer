@@ -4,6 +4,21 @@
 [![Python](https://img.shields.io/badge/python-3.10%2B-blue.svg)](pyproject.toml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
+```text
+   _                              _
+  | |___  __ _ ___ __ _ _ _  __ _| |_  _ ______ _ _
+  | / _ \/ _` |___/ _` | ' \/ _` | | || |_ / -_) '_|
+  |_\___/\__, |   \__,_|_||_\__,_|_|\_, /__\___|_|
+         |___/                      |__/
+
++====================================================================+
+|  LOG ANALYZER  ::  SSH Threat & Auth Log Intelligence              |
++--------------------------------------------------------------------+
+|  Spot brute-force attacks and suspicious logins in auth logs       |
+|  v1.0.0  -  Bastion Ops Toolkit  -  by int3erlud3                  |
++====================================================================+
+```
+
 Summarize SSH brute-force activity from `/var/log/auth.log` or `journalctl` output:
 failed logins, top offending IPs, invalid user names, most targeted accounts, attack
 timeline – and **successful logins from IPs that previously failed**.
@@ -75,6 +90,15 @@ WARNING: successful logins from IPs with failed attempts
 | `--bucket` | `hour` | Timeline granularity: `hour` or `day` |
 | `--year` | current | Year for syslog lines (which have no year) |
 | `--fail-threshold N` | – | Exit `1` if any IP has ≥ N failed logins |
+| `--no-banner` / `NO_BANNER=1` | off | Suppress the startup banner (shown on a terminal only) |
+
+## Startup banner
+
+Part of the **Bastion Ops Toolkit**. When run interactively, `log-analyzer` prints the
+banner shown above to **stderr** – only if stderr is a terminal and never together with `--format json`. Pipes,
+cron jobs, systemd units and monitoring agents see exactly the same output and exit
+codes as before. Disable it with `--no-banner` or `NO_BANNER=1`; `--help` and
+`--version` show it on a terminal too.
 
 ## Development
 

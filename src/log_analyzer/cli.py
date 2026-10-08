@@ -10,6 +10,7 @@ from datetime import datetime
 from pathlib import Path
 
 from . import __version__
+from .banner import maybe_print_banner, maybe_print_banner_for_info
 from .parser import parse_lines
 from .report import BUCKET_FORMATS, render_json, render_table, summarize
 
@@ -48,6 +49,9 @@ def build_parser() -> argparse.ArgumentParser:
         metavar="N",
         help="exit with status 1 if any single IP has at least N failed logins",
     )
+    p.add_argument(
+        "--no-banner", action="store_true", help="do not print the startup banner (or set NO_BANNER=1)"
+    )
     p.add_argument("-V", "--version", action="version", version=f"%(prog)s {__version__}")
     return p
 
@@ -65,7 +69,11 @@ def _read_lines(paths: Sequence[Path]) -> Iterator[str]:
 
 
 def main(argv: Sequence[str] | None = None) -> int:
+    argv = list(sys.argv[1:] if argv is None else argv)
+    maybe_print_banner_for_info(argv)
     args = build_parser().parse_args(argv)
+    if args.format != "json":  # never mix the banner with machine-readable output
+        maybe_print_banner(args.no_banner)
     try:
         events = parse_lines(_read_lines(args.files), year=args.year)
         summary = summarize(events, top=args.top, bucket=args.bucket, since=args.since, until=args.until)
