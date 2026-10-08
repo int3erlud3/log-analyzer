@@ -1,6 +1,6 @@
 # log-analyzer
 
-[![CI](https://github.com/OWNER/log-analyzer/actions/workflows/ci.yml/badge.svg)](https://github.com/OWNER/log-analyzer/actions/workflows/ci.yml)
+[![CI](https://github.com/int3erlud3/log-analyzer/actions/workflows/ci.yml/badge.svg)](https://github.com/int3erlud3/log-analyzer/actions/workflows/ci.yml)
 [![Python](https://img.shields.io/badge/python-3.10%2B-blue.svg)](pyproject.toml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
@@ -23,7 +23,7 @@ Pure Python standard library, no runtime dependencies.
 ## Installation
 
 ```bash
-git clone https://github.com/OWNER/log-analyzer.git
+git clone https://github.com/int3erlud3/log-analyzer.git
 cd log-analyzer
 python3 -m venv .venv && . .venv/bin/activate
 pip install .
