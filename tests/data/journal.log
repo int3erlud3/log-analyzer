@@ -1,0 +1,6 @@
+-- Journal begins at Mon 2026-10-05 00:00:00 CEST. --
+2026-10-08T10:00:01+0200 web02 sshd[3001]: Invalid user test from 203.0.113.99 port 40000
+2026-10-08T10:00:03+0200 web02 sshd[3001]: Failed password for invalid user test from 203.0.113.99 port 40000 ssh2
+2026-10-08T10:00:09+0200 web02 sshd[3002]: Failed password for root from 203.0.113.99 port 40002 ssh2
+2026-10-08T11:30:00.123456789+02:00 web02 sshd-session[3003]: Failed password for root from 203.0.113.99 port 40004 ssh2
+2026-10-08T08:45:00Z web02 sshd[3004]: Accepted publickey for ops from 192.0.2.10 port 50000 ssh2
